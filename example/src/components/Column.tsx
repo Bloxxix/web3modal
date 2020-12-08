@@ -3,9 +3,9 @@ import * as PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 interface IColumnStyleProps {
-  spanHeight: boolean
-  maxWidth: number
-  center: boolean
+  spanHeight?: boolean
+  maxWidth?: number
+  center?: boolean
 }
 
 interface IColumnProps extends IColumnStyleProps {

@@ -6,6 +6,7 @@ export interface IWalletConnectConnectorOptions
   rpc?: { [chainId: number]: string };
   bridge?: string;
   qrcode?: boolean;
+  qrcodeModalOptions?: { mobileLinks?: string[] };
 }
 
 const ConnectToWalletConnect = (
@@ -18,6 +19,7 @@ const ConnectToWalletConnect = (
     let infuraId = '';
     let rpc = undefined;
     let chainId = 1;
+    let qrcodeModalOptions = undefined;
 
     if (opts) {
       bridge = opts.bridge || bridge;
@@ -26,6 +28,7 @@ const ConnectToWalletConnect = (
       rpc = opts.rpc || undefined;
       chainId =
         opts.network && getChainId(opts.network) ? getChainId(opts.network) : 1;
+      qrcodeModalOptions = opts.qrcodeModalOptions || undefined;
     }
 
     const provider = new WalletConnectProvider({
@@ -33,7 +36,8 @@ const ConnectToWalletConnect = (
       qrcode,
       infuraId,
       rpc,
-      chainId
+      chainId,
+      qrcodeModalOptions
     });
     try {
       await provider.enable();

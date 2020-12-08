@@ -16,6 +16,7 @@ interface IResultTableStyleProps {
   nested?: boolean
 }
 
+// @ts-ignore
 const STable = styled(SContainer)<IResultTableStyleProps>`
   flex-direction: column;
   min-height: ${({ nested }) => (nested ? 'auto' : '200px')};

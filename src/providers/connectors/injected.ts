@@ -1,11 +1,16 @@
 const ConnectToInjected = async () => {
   let provider = null;
+  // Typed window object breaks compilation in junction with other libs
   let anyWindow = window as any;
 
-  if (anyWindow.ethereum) {
+  if (typeof anyWindow.ethereum !== 'undefined') {
     provider = anyWindow.ethereum;
     try {
-      await anyWindow.ethereum.enable();
+      if (typeof provider.request !== 'undefined') {
+        await provider.request({method: 'eth_requestAccounts'})
+      } else {
+        await provider.enable()
+      }
     } catch (error) {
       throw new Error('User Rejected');
     }

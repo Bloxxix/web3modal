@@ -12,7 +12,7 @@ const fadeIn = keyframes`
 `
 
 interface IWrapperStyleProps {
-  center: boolean
+  center?: boolean
 }
 
 const SWrapper = styled.div<IWrapperStyleProps>`

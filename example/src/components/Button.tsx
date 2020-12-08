@@ -5,11 +5,11 @@ import { colors, fonts, shadows, transitions } from '../styles'
 
 interface IButtonStyleProps {
   fetching: boolean
-  outline: boolean
-  type: 'button' | 'submit' | 'reset'
+  outline?: boolean
+  type?: 'button' | 'submit' | 'reset'
   color: string
-  disabled: boolean
-  icon: any
+  disabled?: boolean
+  icon?: any
   left: boolean
 }
 
@@ -110,10 +110,8 @@ const Button = (props: IButtonProps) => (
   <SButton
     type={props.type}
     outline={props.outline}
-    color={props.color}
     disabled={props.disabled}
     icon={props.icon}
-    left={props.left}
     {...props}
   >
     <SHoverLayer />

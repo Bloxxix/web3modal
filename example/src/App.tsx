@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Web3 from "web3";
 import { convertUtf8ToHex } from "@walletconnect/utils";
 
+// @ts-ignore
 import Web3Modal from "web3modal";
 // @ts-ignore
 import WalletConnectProvider from "@walletconnect/web3-provider";
@@ -10,7 +11,9 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import Fortmatic from "fortmatic";
 import Torus from "@toruslabs/torus-embed";
 import Authereum from "authereum";
-import UniLogin from "@unilogin/provider";
+import { Bitski } from "bitski";
+// @ts-ignore
+import ethProvider from 'eth-provider';
 
 import Button from "./components/Button";
 import Column from "./components/Column";
@@ -86,6 +89,7 @@ const SModalParagraph = styled.p`
   margin-top: 30px;
 `;
 
+// @ts-ignore
 const SBalances = styled(SLanding)`
   height: 100%;
   & h3 {
@@ -250,8 +254,15 @@ class App extends React.Component<any, any> {
       authereum: {
         package: Authereum
       },
-      unilogin: {
-        package: UniLogin
+      frame: {
+        package: ethProvider,
+      },
+      bitski: {
+        package: Bitski,
+        options: {
+          clientId: '5e00ac1b-8bf3-4c93-b422-8a7dafbd344b',
+          callbackUrl: window.location.href + "bitski-callback.html"
+        }
       }
     };
     return providerOptions;

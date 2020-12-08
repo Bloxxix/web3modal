@@ -22,9 +22,14 @@ import MEWwallet from '../logos/mewwallet.png';
 import DcentWalletLogo from '../logos/dcentwallet.png';
 // @ts-ignore
 import WalletLinkLogo from '../logos/walletlink.svg';
+// @ts-ignore
+import BitskiLogo from "../logos/bitski.svg";
+// @ts-ignore
+import FrameLogo from "../logos/frame.svg";
 
 import { IProviderInfo } from '../../helpers';
 
+// @ts-ignore
 export * from '../injected';
 
 export const WALLETCONNECT: IProviderInfo = {
@@ -145,4 +150,23 @@ export const WALLETLINK: IProviderInfo = {
   package: {
     required: ['appLogoUrl', 'appName', 'infuraId'],
   },
+};
+
+export const BITSKI: IProviderInfo = {
+  id: "bitski",
+  name: "Bitski",
+  logo: BitskiLogo,
+  type: "web",
+  check: "isBitski",
+  package: {
+    required: ["clientId", "callbackUrl"]
+  }
+};
+
+export const FRAME: IProviderInfo = {
+  id: "frame",
+  name: "Frame",
+  logo: FrameLogo,
+  type: "web",
+  check: "isFrameNative"
 };

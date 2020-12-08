@@ -24,6 +24,7 @@ const SActiveAccount = styled.div`
   font-weight: 500;
 `
 
+// @ts-ignore
 const SActiveChain = styled(SActiveAccount)`
   flex-direction: column;
   text-align: left;
